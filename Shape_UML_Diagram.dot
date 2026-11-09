@@ -1,0 +1,17 @@
+digraph G {
+  graph [rankdir=BT, bgcolor="white", pad="0.25", nodesep="0.52", ranksep="0.8", splines=polyline];
+  node [shape=plain, fontname="DejaVu Sans", fontsize=12];
+  edge [color="#52647c", penwidth=1.8, arrowsize=1.1, fontname="DejaVu Sans", fontsize=10];
+  Shape [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#52647c" BGCOLOR="#f8fafc"><TR><TD BGCOLOR="#dbeafe" ALIGN="CENTER"><B>«abstract» Shape</B></TD></TR><TR><TD ALIGN="LEFT" BORDER="1" SIDES="T">+ surface_area(): double <I>(abstract)</I></TD></TR><TR><TD ALIGN="LEFT">+ volume(): double <I>(abstract)</I></TD></TR></TABLE>>];
+  Sphere [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#52647c" BGCOLOR="#f8fafc"><TR><TD BGCOLOR="#edf3fc" ALIGN="CENTER"><B>Sphere</B></TD></TR><TR><TD ALIGN="LEFT" BORDER="1" SIDES="T">- radius: double</TD></TR><TR><TD ALIGN="LEFT" BORDER="1" SIDES="T">+ Sphere(radius: double)</TD></TR><TR><TD ALIGN="LEFT">+ surface_area(): double</TD></TR><TR><TD ALIGN="LEFT">+ volume(): double</TD></TR><TR><TD ALIGN="LEFT">+ toString(): String</TD></TR></TABLE>>];
+  Cylinder [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#52647c" BGCOLOR="#f8fafc"><TR><TD BGCOLOR="#edf3fc" ALIGN="CENTER"><B>Cylinder</B></TD></TR><TR><TD ALIGN="LEFT" BORDER="1" SIDES="T">- radius: double</TD></TR><TR><TD ALIGN="LEFT">- height: double</TD></TR><TR><TD ALIGN="LEFT" BORDER="1" SIDES="T">+ Cylinder(radius: double, height: double)</TD></TR><TR><TD ALIGN="LEFT">+ surface_area(): double</TD></TR><TR><TD ALIGN="LEFT">+ volume(): double</TD></TR><TR><TD ALIGN="LEFT">+ toString(): String</TD></TR></TABLE>>];
+  Cone [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#52647c" BGCOLOR="#f8fafc"><TR><TD BGCOLOR="#edf3fc" ALIGN="CENTER"><B>Cone</B></TD></TR><TR><TD ALIGN="LEFT" BORDER="1" SIDES="T">- radius: double</TD></TR><TR><TD ALIGN="LEFT">- height: double</TD></TR><TR><TD ALIGN="LEFT" BORDER="1" SIDES="T">+ Cone(radius: double, height: double)</TD></TR><TR><TD ALIGN="LEFT">+ surface_area(): double</TD></TR><TR><TD ALIGN="LEFT">+ volume(): double</TD></TR><TR><TD ALIGN="LEFT">+ toString(): String</TD></TR></TABLE>>];
+  ShapeArray [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#52647c" BGCOLOR="#f8fafc"><TR><TD BGCOLOR="#dcfce7" ALIGN="CENTER"><B>ShapeArray</B></TD></TR><TR><TD ALIGN="LEFT" BORDER="1" SIDES="T">+ main(args: String[]): void</TD></TR></TABLE>>];
+  {rank=same; Sphere; Cylinder; Cone;}
+  Sphere -> Shape [arrowhead=empty];
+  Cylinder -> Shape [arrowhead=empty];
+  Cone -> Shape [arrowhead=empty];
+  ShapeArray -> Sphere [style=dashed, arrowhead=vee, constraint=false];
+  ShapeArray -> Cylinder [style=dashed, arrowhead=vee, label="creates", weight=0.5];
+  ShapeArray -> Cone [style=dashed, arrowhead=vee, constraint=false];
+}
